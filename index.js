@@ -1,22 +1,10 @@
 const { ApolloServer } = require('apollo-server');
-const gql = require('graphql-tag');
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
-const { MONGO_DB_CONNECT_URI } = require('./config')
+const { MONGO_DB_CONNECT_URI } = require('./config');
+const resolvers = require('./graphql/resolvers/index');
+const typeDefs  = require('./graphql/typeDefs')
 const serverPort = 8000;
-
-const typeDefs = gql`
-    type Query {
-        helloWorld: String!
-    }
-`
-
-const resolvers = {
-    Query : {
-        helloWorld : () => "Welcome to the club"
-    }
-}
-
 
 const server = new ApolloServer({
     typeDefs,
