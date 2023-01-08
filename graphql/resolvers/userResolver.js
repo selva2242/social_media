@@ -79,7 +79,7 @@ module.exports = {
             if(!match){
                 throw new UserInputError('Errros', {
                     error : {
-                        user : "Invalid Credentials"
+                        user : "Invalid  password"
                     }
                 })
             }
