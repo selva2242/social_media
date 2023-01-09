@@ -1,4 +1,5 @@
 const { AuthenticationError } = require('apollo-server');
+const post = require('../../models/post');
 
 const Post = require('../../models/post');
 const checkIsValidUser = require('../../utils/validateUser')
@@ -64,20 +65,39 @@ module.exports = {
         async deletePost(_, {postId}, context){
             try{
                 const user = checkIsValidUser(context);
-                console.log(user);
                 const existingPost = await Post.findById(postId);
-                console.log(existingPost);
 
                 if(existingPost){
                     if(existingPost.userName !== user.userName){
                         throw new AuthenticationError('You cannot delete others post');
                     }
-                    console.log("existingPost before delete");
 
                     await existingPost.delete();                  
-                      console.log("existingPost after delete");
 
                     return "Post Deleted successfully";
+                } 
+            } catch(err){
+                throw new Error(err);
+            }
+        },
+        async likePost(_, {postId}, context){
+            try{
+                const user = checkIsValidUser(context);
+                const existingPost = await Post.findById(postId);
+
+                if(existingPost){
+                    if(existingPost.likes.find((like)=> like.userName === user.userName)){
+                        existingPost.likes = existingPost.likes.filter((like)=> like.userName !== user.userName);
+                    }
+                    else{
+                        existingPost.likes.push({
+                            userName : user.userName,
+                            createdAt : new Date().toISOString()
+                        })
+                    }
+                    await existingPost.save();
+
+                    return existingPost;
                 } 
             } catch(err){
                 throw new Error(err);
