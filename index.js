@@ -8,7 +8,8 @@ const serverPort = 8000;
 
 const server = new ApolloServer({
     typeDefs,
-    resolvers
+    resolvers,
+    context : ({req}) => ({req})
 })
 
 mongoose.connect(MONGO_DB_CONNECT_URI)
