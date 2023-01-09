@@ -77,9 +77,9 @@ module.exports = {
 
             const match = await bcrypt.compare(password, existingUser.password);
             if(!match){
-                throw new UserInputError('Errros', {
+                throw new UserInputError('Errors', {
                     error : {
-                        user : "Invalid  password"
+                        user : "Invalid  Credentials"
                     }
                 })
             }
