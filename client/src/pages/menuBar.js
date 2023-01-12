@@ -11,7 +11,7 @@ const MenuBar = () => {
     return (
         <Menu secondary>
         <Menu.Item
-          name='home'
+          name='Home'
           active={activeItem === 'home'}
           onClick={handleItemClick}
           as={Link}
@@ -19,18 +19,32 @@ const MenuBar = () => {
 
         />
         <Menu.Item
-          name='posts'
+          name='Posts'
           active={activeItem === 'posts'}
           onClick={handleItemClick}
           as={Link}
           to="/post"
         />
         <Menu.Item
-          name='friends'
+          name='Friends'
           active={activeItem === 'friends'}
           onClick={handleItemClick}
           as={Link}
           to="/friends"
+        />
+         <Menu.Item position='right'
+          name='Login'
+          active={activeItem === 'login'}
+          onClick={handleItemClick}
+          as={Link}
+          to="/login"
+        />
+         <Menu.Item 
+          name='Register'
+          active={activeItem === 'register'}
+          onClick={handleItemClick}
+          as={Link}
+          to="/register"
         />
       </Menu>
     )

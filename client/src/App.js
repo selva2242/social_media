@@ -10,6 +10,8 @@ import { Container } from 'semantic-ui-react';
 
 import 'semantic-ui-css/semantic.min.css';
 import MenuBar from './pages/menuBar';
+import Login from './pages/login';
+import Register from './pages/register';
 
 function App() {
   return (
@@ -21,8 +23,9 @@ function App() {
             <Route exact path="/" element={<Home/>}></Route>
             <Route exact path="/home" element={<Home/>}></Route>
             <Route path="/post" element={<Post/>}></Route>
+            <Route exact path="/login" element={<Login/>}></Route>
+            <Route exact path="/register" element={<Register/>}></Route>
           </Routes>
-
         </Router>
       </Container>
     </div>
