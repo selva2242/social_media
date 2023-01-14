@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 const MenuBar = () => {
 
     const [ activeItem, setActiveItem ] = useState('home')
+    
     const handleItemClick = (e, { name }) => setActiveItem(name);
 
     return (
@@ -17,20 +18,6 @@ const MenuBar = () => {
           as={Link}
           to='/home'
 
-        />
-        <Menu.Item
-          name='Posts'
-          active={activeItem === 'posts'}
-          onClick={handleItemClick}
-          as={Link}
-          to='/post'
-        />
-        <Menu.Item
-          name='Friends'
-          active={activeItem === 'friends'}
-          onClick={handleItemClick}
-          as={Link}
-          to='/friends'
         />
          <Menu.Item position='right'
           name='Login'

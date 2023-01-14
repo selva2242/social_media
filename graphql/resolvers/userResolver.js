@@ -30,7 +30,7 @@ module.exports = {
         const isUserExists = await User.findOne({email})
         if(isUserExists){
             throw new UserInputError('Erros', {
-                error : {
+                errors : {
                     user : 'User already exists with this email'
                 }
             })
@@ -69,7 +69,7 @@ module.exports = {
             const existingUser = await User.findOne({email})
             if(!existingUser){
                 throw new UserInputError('Erros', {
-                    error : {
+                    errors : {
                         user : 'No user exists with this email'
                     }
                 })
@@ -78,7 +78,7 @@ module.exports = {
             const match = await bcrypt.compare(password, existingUser.password);
             if(!match){
                 throw new UserInputError('Errors', {
-                    error : {
+                    errors : {
                         user : 'Invalid  Credentials'
                     }
                 })

@@ -12,6 +12,7 @@ import 'semantic-ui-css/semantic.min.css';
 import MenuBar from './pages/menuBar';
 import Login from './pages/login';
 import Register from './pages/register';
+import './App.css'
 
 function App() {
   return (

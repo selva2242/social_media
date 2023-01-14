@@ -38,7 +38,7 @@ const PostCard = ({post}) => (
              <strong>{post.body}</strong>
           </Card.Description>
         </Card.Content>
-        <Button as='div' labelPosition='right' size=''>
+        <Button as='div' labelPosition='right'>
             <Button color='blue'>
                 <Icon name='heart' />
             </Button>
