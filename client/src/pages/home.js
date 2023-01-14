@@ -1,7 +1,11 @@
 import React from "react";
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
-import { Button, Card, Image } from 'semantic-ui-react'
+import { Button, Card, Image,  Icon, Label } from 'semantic-ui-react'
+import moment from 'moment';
+import { Link } from 'react-router-dom';
+
+
 
 export const FETCH_POSTS_QUERY = gql`
   {
@@ -21,29 +25,35 @@ export const FETCH_POSTS_QUERY = gql`
 
 const PostCard = ({post}) => (
       
-      <Card>
-        <Card.Content>
+      <Card size="massive" >
+        <Card.Content  as={Link} to={`/post/${post.id}`}>
           <Image
             floated='right'
             size='mini'
             src='https://react.semantic-ui.com/images/avatar/large/steve.jpg'
           />
           <Card.Header>{post.body}</Card.Header>
-          <Card.Meta>{post.createdAt}</Card.Meta>
+          <Card.Meta>{moment(post.createdAt).fromNow(true)}</Card.Meta>
           <Card.Description>
              <strong>{post.body}</strong>
           </Card.Description>
         </Card.Content>
-        {/* <Card.Content extra>
-          <div className='ui two buttons'>
-            <Button basic color='green'>
-              Approve
+        <Button as='div' labelPosition='right' size="">
+            <Button color='blue'>
+                <Icon name='heart' />
+                Like
             </Button>
-            <Button basic color='red'>
-              Decline
+            <Label as='a' basic color='blue' pointing='left'>
+                {post.likesCount}
+            </Label>
+            <Button color='blue'>
+                <Icon name='comments' />
+                Comment
             </Button>
-          </div>
-        </Card.Content> */}
+            <Label as='a' basic color='blue' pointing='left'>
+                {post.commentsCount}
+            </Label>
+        </Button>
       </Card>
   )
   
@@ -53,9 +63,7 @@ const Home = () => {
         loading,
         data
       } = useQuery(FETCH_POSTS_QUERY);
-          console.log("yehova")
 
-    // console.log(data.getPosts)      
     return(
         <div>
             {
@@ -67,7 +75,7 @@ const Home = () => {
                     {
 
                     data.getPosts.map((post)=>{
-                        return <PostCard post={post}></PostCard>
+                        return <PostCard key = {post.id} post={post}></PostCard>
                     })
 }
                     </Card.Group>
