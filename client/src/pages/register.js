@@ -9,13 +9,25 @@ const Register = () => {
         'password' : '',
         'confirmPassword' : ''
     })
+    const [errors, setErrors] = useState({
+        'username' : '',
+        'email' : '',
+        'password' : '',
+        'confirmPassword' : ''
+    })
 
     const udpateUserDetails = (e) => {
-        setUserDetails({...userDetails , e.target.name : e.target.value})
+        setUserDetails({...userDetails , [e.target.name] : e.target.value})
     }
 
-    const registerUser = (props) => {
-        console.log(props)
+    const registerUser = () => {
+        // const currentErros = {}
+        // if(password.length < 9){
+        //     errors.password = ' Password length should be minimum 8 characters'
+        // } else{
+        //     errors.password = ' Passwords does not match'
+        // }    
+        // console.log(userDetails)
         console.log('Register user getting called')
     }
 
@@ -47,7 +59,7 @@ const Register = () => {
             <Form.Field>
                 <label>Re-enter Password</label>
                 <input placeholder='Re-enter password' 
-                name='confirmpassword'
+                name='confirmPassword'
                 type='password' 
                 value={userDetails.confirmPassword} 
                 onChange={udpateUserDetails}/>
