@@ -15,16 +15,16 @@ import Register from './pages/register';
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <Container>
         <Router>
         <MenuBar/>
           <Routes>
-            <Route exact path="/" element={<Home/>}></Route>
-            <Route exact path="/home" element={<Home/>}></Route>
-            <Route path="/post" element={<Post/>}></Route>
-            <Route exact path="/login" element={<Login/>}></Route>
-            <Route exact path="/register" element={<Register/>}></Route>
+            <Route exact path='/' element={<Home/>}></Route>
+            <Route exact path='/home' element={<Home/>}></Route>
+            <Route path='/post' element={<Post/>}></Route>
+            <Route exact path='/login' element={<Login/>}></Route>
+            <Route exact path='/register' element={<Register/>}></Route>
           </Routes>
         </Router>
       </Container>

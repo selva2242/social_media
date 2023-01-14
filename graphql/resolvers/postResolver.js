@@ -74,7 +74,7 @@ module.exports = {
 
                     await existingPost.delete();                  
 
-                    return "Post Deleted successfully";
+                    return 'Post Deleted successfully';
                 } 
             } catch(err){
                 throw new Error(err);

@@ -29,7 +29,7 @@ module.exports = {
 
             if(post){
                 const commentIndex = post.comments.findIndex(c => c.id === commentId);
-                console.log("commentIndex ", commentIndex)
+                console.log('commentIndex ', commentIndex)
                 if(commentIndex >=0){
                     if(post.comments[commentIndex].username !== user.username){
                         return new Error('You cannot edit other comment');

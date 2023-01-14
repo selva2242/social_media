@@ -31,7 +31,7 @@ module.exports = {
         if(isUserExists){
             throw new UserInputError('Erros', {
                 error : {
-                    user : "User already exists with this email"
+                    user : 'User already exists with this email'
                 }
             })
         }
@@ -51,10 +51,10 @@ module.exports = {
        const token = generateToken(newUser);
 
         return {
-            "id" : response._id,
-            "username" : response.username,
-            "email" : response.email,
-            "token" : token
+            'id' : response._id,
+            'username' : response.username,
+            'email' : response.email,
+            'token' : token
         }  
 
        },
@@ -70,7 +70,7 @@ module.exports = {
             if(!existingUser){
                 throw new UserInputError('Erros', {
                     error : {
-                        user : "No user exists with this email"
+                        user : 'No user exists with this email'
                     }
                 })
             }
@@ -79,7 +79,7 @@ module.exports = {
             if(!match){
                 throw new UserInputError('Errors', {
                     error : {
-                        user : "Invalid  Credentials"
+                        user : 'Invalid  Credentials'
                     }
                 })
             }
@@ -88,10 +88,10 @@ module.exports = {
             const token = generateToken(existingUser);
 
             return {
-                "id" : existingUser._id,
-                "username" : existingUser.username,
-                "email" : existingUser.email,
-                "token" : token
+                'id' : existingUser._id,
+                'username' : existingUser.username,
+                'email' : existingUser.email,
+                'token' : token
             }  
        }
     }

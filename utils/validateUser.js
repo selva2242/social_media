@@ -6,7 +6,7 @@ const checkIsValidUser = (context) => {
     const authHeader = context.req.headers.authorization;
 
     if(authHeader){
-        const token = authHeader.split("Bearer ")[1];
+        const token = authHeader.split('Bearer ')[1];
         console.log(token)
         if(token){
             const user = jwt.verify(token, SECRET_KEY);

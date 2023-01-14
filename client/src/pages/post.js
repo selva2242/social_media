@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
 const Post = () => {
     return(
         <div>
-            "Post is here"
+            'Post is here'
         </div>
     )
    

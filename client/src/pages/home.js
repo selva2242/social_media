@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
 import { Button, Card, Image,  Icon, Label } from 'semantic-ui-react'
@@ -25,7 +25,7 @@ export const FETCH_POSTS_QUERY = gql`
 
 const PostCard = ({post}) => (
       
-      <Card size="massive" >
+      <Card size='massive' >
         <Card.Content  as={Link} to={`/post/${post.id}`}>
           <Image
             floated='right'
@@ -38,7 +38,7 @@ const PostCard = ({post}) => (
              <strong>{post.body}</strong>
           </Card.Description>
         </Card.Content>
-        <Button as='div' labelPosition='right' size="">
+        <Button as='div' labelPosition='right' size=''>
             <Button color='blue'>
                 <Icon name='heart' />
             </Button>
@@ -81,7 +81,7 @@ const Home = () => {
                 </>
 
             }    
-            "Home is here"
+            'Home is here'
         </div>
     )
    
