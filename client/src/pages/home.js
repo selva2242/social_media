@@ -41,14 +41,12 @@ const PostCard = ({post}) => (
         <Button as='div' labelPosition='right' size="">
             <Button color='blue'>
                 <Icon name='heart' />
-                Like
             </Button>
             <Label as='a' basic color='blue' pointing='left'>
                 {post.likesCount}
             </Label>
             <Button color='blue'>
                 <Icon name='comments' />
-                Comment
             </Button>
             <Label as='a' basic color='blue' pointing='left'>
                 {post.commentsCount}
