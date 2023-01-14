@@ -28,7 +28,7 @@ module.exports = {
                 const newPost = new Post({
                     body,
                     user: user.id,
-                    userName: user.userName,
+                    username: user.username,
                     createdAt: new Date().toISOString(),
                     comments : [],
                     likes : []
@@ -49,7 +49,7 @@ module.exports = {
                 const existingPost = await Post.findById(postId);
                 if(existingPost){
                   
-                  if(existingPost.userName !== user.userName){
+                  if(existingPost.username !== user.username){
                     throw new AuthenticationError('You cannot edit others post');
                   }
                   let updatedPost = existingPost;
@@ -68,7 +68,7 @@ module.exports = {
                 const existingPost = await Post.findById(postId);
 
                 if(existingPost){
-                    if(existingPost.userName !== user.userName){
+                    if(existingPost.username !== user.username){
                         throw new AuthenticationError('You cannot delete others post');
                     }
 
@@ -86,12 +86,12 @@ module.exports = {
                 const existingPost = await Post.findById(postId);
 
                 if(existingPost){
-                    if(existingPost.likes.find((like)=> like.userName === user.userName)){
-                        existingPost.likes = existingPost.likes.filter((like)=> like.userName !== user.userName);
+                    if(existingPost.likes.find((like)=> like.username === user.username)){
+                        existingPost.likes = existingPost.likes.filter((like)=> like.username !== user.username);
                     }
                     else{
                         existingPost.likes.push({
-                            userName : user.userName,
+                            username : user.username,
                             createdAt : new Date().toISOString()
                         })
                     }

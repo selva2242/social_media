@@ -13,7 +13,7 @@ module.exports = {
                 post.comments.unshift({
                     body : body,
                     createdAt : new Date().toISOString(),
-                    userName : user.userName
+                    username : user.username
                 })
                 await post.save();
                 return post;
@@ -31,7 +31,7 @@ module.exports = {
                 const commentIndex = post.comments.findIndex(c => c.id === commentId);
                 console.log("commentIndex ", commentIndex)
                 if(commentIndex >=0){
-                    if(post.comments[commentIndex].userName !== user.userName){
+                    if(post.comments[commentIndex].username !== user.username){
                         return new Error('You cannot edit other comment');
                     }
                     post.comments[commentIndex].body = updatedBody
@@ -52,7 +52,7 @@ module.exports = {
             if(post){
                 const commentIndex = post.comments.findIndex(c => c.id === commentId);
                 if(commentIndex >=0){
-                    if(post.comments[commentIndex].userName !== user.userName){
+                    if(post.comments[commentIndex].username !== user.username){
                         return new Error('You cannot delete others comment');
                     }
 

@@ -10,7 +10,7 @@ const generateToken = (user) => {
     return jwt.sign({
         id: user.id,
         email: user.email,
-        userName: user.userName
+        username: user.username
     },
     SECRET_KEY,
     { expiresIn: '1h' })
@@ -18,10 +18,10 @@ const generateToken = (user) => {
 
 module.exports = {
     Mutation : {
-       async registerUser(_parent, {registerInput : {userName, email, password, confirmPassword}} ){
+       async registerUser(_parent, {registerInput : {username, email, password, confirmPassword}} ){
            
         //validating user details
-        const { errors, isValidUserDetails} = validateUserRegistration(userName, email, password, confirmPassword)
+        const { errors, isValidUserDetails} = validateUserRegistration(username, email, password, confirmPassword)
         if(!isValidUserDetails){
             throw new UserInputError('Errors', {errors})
         }
@@ -40,7 +40,7 @@ module.exports = {
         const hashedPassword =  await bcrypt.hash(password, 12)
 
         const newUser = new User({
-            userName : userName,
+            username : username,
             email    : email, 
             password : hashedPassword,
             createdAt : new Date().toISOString()
@@ -52,7 +52,7 @@ module.exports = {
 
         return {
             "id" : response._id,
-            "userName" : response.userName,
+            "username" : response.username,
             "email" : response.email,
             "token" : token
         }  
@@ -89,7 +89,7 @@ module.exports = {
 
             return {
                 "id" : existingUser._id,
-                "userName" : existingUser.userName,
+                "username" : existingUser.username,
                 "email" : existingUser.email,
                 "token" : token
             }  

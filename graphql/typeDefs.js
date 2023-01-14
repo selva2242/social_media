@@ -4,7 +4,7 @@ module.exports = gql`
     type Post {
         id : ID!,
         body : String!,
-        userName : String!, 
+        username : String!, 
         createdAt : String!,
         comments : [Comment]!,
         likes : [Like]!,
@@ -14,22 +14,22 @@ module.exports = gql`
     type Comment {
         id : ID!,
         body : String!,
-        userName : String!,
+        username : String!,
         createdAt : String
     }
     type Like{
         id : ID!,
-        userName : String!,
+        username : String!,
         createdAt : String
     }
     type User{
         id: ID!,
-        userName : String!,
+        username : String!,
         email : String!,
         token : String!
     }
     input RegisterInput {
-        userName : String!,
+        username : String!,
         email : String!,
         password : String!,
         confirmPassword : String!

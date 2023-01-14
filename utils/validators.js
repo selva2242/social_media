@@ -1,10 +1,10 @@
 const emailRegEx = /^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$/;
 
 
-const validateUserRegistration = (userName, email, password, confirmPassword) => {
+const validateUserRegistration = (username, email, password, confirmPassword) => {
     const errors = {};
-    if(userName.trim() == ""){
-        errors.userName = "UserName cannot be empty"
+    if(username.trim() == ""){
+        errors.username = "username cannot be empty"
     }
     if(email.trim() == ""){
         errors.email = "Email cannot be empty"
